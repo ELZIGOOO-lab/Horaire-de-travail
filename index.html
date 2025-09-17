@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Suivi d'Heures Pro</title>
-    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiU3VpdmkgZCdIZXVyZXMgUHJvIiwic2hvcnRfbmFtZSI6IkV1cmVzUHJvIiwic3RhcnRfdXJsIjoiLi8iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMTExODI3IiwidGhlbWVfY29sb3IiOiIjMTExODI3IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEQ5NGJXd2dkbVZ5YzJsdmJqMGlNUzR3SWlCbGJtTnZaR2x1WnowaVZWUkdMVGdpUHo0OEMzWm5JR2hsYVdkb2REMGlOVEV5SWlCM2FXUjBhRDBpTlRFeUlpQjJhV1YzUW05NElEMGlNQ0F3SURVeE1pQTFNVElpSUdacGJHdzlJaU14TVRFNE1qY2lQand2YzNabklENEVEdzl6ZG1jK0lUND0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
-    <meta name="theme-color" content="#111827">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiU3VpdmkgZCdIZXVyZXMgUHJvIiwic2hvcnRfbmFtZSI6IkhldXJlc1BybyIsInN0YXJ0X3VybCI6Ii4vaW5kZXhfYW1lbGlvcmUuaHRtbCIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCIsImJhY2tncm91bmRfY29sb3IiOiIjMGYxNzJhIiwidGhlbWVfY29sb3IiOiIjNjM2NmYxIiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1UQXlOQ0lnYUdWcFoyaDBQU0l4TURJMElpQjJhV1YzUW05NElEMGlNQ0F3SURFd01qUWdNVEF5TkNJZ1ptbHNiRDBpSXpZek5qWm1NU0krUEdOcGNtTnNaU0JqZUQwaU5URXlJaUJqZVQwaU5URXlJaUJ5UFNJeU5EZ2lJR1pwYkd3OUlpTXdaalUzTW1FaUx6NEVEeDl6ZG1jK0lUND0iLCJzaXplcyI6IjEwMjR4MTAyNCIsInR5cGUiOiJpbWFnZS9zdmcreG1sIn0seyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdkbWxsZDBKdmVEMGlNQ0F3SURVeE1pQTFNVElpSUdacGJHdzlJaU0yTXpZMlpqRWlQaUJFUEhOd1lXNCtQR05wY21Oc1pTQmpkRDBpTVRVMElpQmpkVDBpTVRVMElpQnlQU0l5TlNJZ1ptbHNiRDBpSXpBM01UZ3lOeUl2UGtVTmNITXZjM0JoYmoEVEQ5emRtYytJVDQ9Iiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+    <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Heures Pro">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSIjNjM2NmYxIj4KPGNpcmNsZSBjeD0iNTEyIiBjeT0iNTEyIiByPSIyNDgiIGZpbGw9IiMwZjE3MmEiLz4KPHA+PC9zdmcrPg==">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -138,12 +140,42 @@
             background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
         }
 
+        .month-selector {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .month-nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .month-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .month-nav-btn:active {
+            transform: scale(0.95);
+        }
+
         .month-title {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 1rem;
             text-align: center;
+            flex: 1;
         }
 
         .stats-grid {
@@ -527,6 +559,14 @@
             margin-bottom: 0.25rem;
         }
 
+        .month-card-open {
+            border-left: 3px solid var(--warning);
+        }
+
+        .month-card-open::before {
+            background: linear-gradient(90deg, var(--warning) 0%, var(--secondary) 100%);
+        }
+
         .month-stat-value {
             font-size: 1rem;
             font-weight: 700;
@@ -645,7 +685,19 @@
         </div>
 
         <div class="stats-card">
-            <h2 class="month-title" id="current-month-title">Décembre 2024</h2>
+            <div class="month-selector">
+                <button id="prevMonth" class="month-nav-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"/>
+                    </svg>
+                </button>
+                <h2 class="month-title" id="current-month-title">Loading...</h2>
+                <button id="nextMonth" class="month-nav-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"/>
+                    </svg>
+                </button>
+            </div>
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-label">Heures</div>
@@ -723,93 +775,4 @@
                 <div id="entries-list" class="entries-list">
                     <div class="empty-state">
                         <div class="empty-icon">
-                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
-                            </svg>
-                        </div>
-                        <h3 class="empty-title">Aucune prestation</h3>
-                        <p class="empty-subtitle">Commencez par ajouter votre première prestation</p>
-                    </div>
-                </div>
-
-                <div class="month-controls">
-                    <button id="closeMonth" class="btn btn-success">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 6L9 17l-5-5"/>
-                        </svg>
-                        Clôturer
-                    </button>
-                    <button id="newMonth" class="btn btn-secondary">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        Nouveau mois
-                    </button>
-                </div>
-            </div>
-
-            <div id="history-tab" class="tab-content">
-                <div id="history-grid" class="history-grid">
-                    <div class="empty-state">
-                        <div class="empty-icon">
-                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                        </div>
-                        <h3 class="empty-title">Aucun historique</h3>
-                        <p class="empty-subtitle">Les mois clôturés apparaîtront ici</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        class HoursTrackerPro {
-            constructor() {
-                this.rate = 12; // €/h
-                this.currentMonth = localStorage.getItem('currentMonth') || new Date().toISOString().slice(0, 7);
-                this.records = JSON.parse(localStorage.getItem('records_' + this.currentMonth) || '[]');
-                this.closedMonths = JSON.parse(localStorage.getItem('closedMonths') || '[]');
-                this.init();
-            }
-
-            init() {
-                this.setupEventListeners();
-                this.updateCurrentMonthDisplay();
-                this.renderEntries();
-                this.renderHistory();
-                this.updateStats();
-                this.setupPWA();
-            }
-
-            setupEventListeners() {
-                // Tab switching
-                document.querySelectorAll('.nav-tab').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        this.switchTab(e.target.closest('.nav-tab').dataset.tab);
-                    });
-                });
-
-                // Form submission
-                document.getElementById('timeForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.handleFormSubmit();
-                });
-
-                // Month controls
-                document.getElementById('closeMonth').addEventListener('click', () => {
-                    this.closeMonth();
-                });
-
-                document.getElementById('newMonth').addEventListener('click', () => {
-                    this.createNewMonth();
-                });
-            }
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
